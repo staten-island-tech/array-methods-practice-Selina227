@@ -23,7 +23,7 @@ const students = [
 ];
 
 //Part 1
-students.forEach((students) => console.log(students.name && students.grade));
+students.forEach((students) => console.log(students.name, students.grade));
 
 //Part 2
 const topStudents = students.filter((students) => students.grade > 80);
@@ -47,6 +47,19 @@ const products = [
 ];
 
 //Part 1
-products.forEach((products) => console.log(products.name && products.price));
-const updatedProducts = products.forEach((products) => products.price * 1.1);
+products.forEach((products) => console.log(products.name, products.price));
+
+const updatedProducts = [];
+products.forEach((product) => {
+  if (
+    updatedProducts.includes(
+      product.name,
+      product.price,
+      product.category,
+      product.rating
+    )
+  ) {
+    updatedProducts.push(product.price * 1.1);
+  }
+});
 console.log(updatedProducts);
